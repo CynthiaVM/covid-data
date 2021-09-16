@@ -23,7 +23,14 @@
     </form>
 
     {% if not pais == '' %}
+    <div class= "text-center">
         <h1>{{ pais }}</h1>
+        <p>Nuevos casos={{new}} </p>
+        <p>Casos activos={{active}} </p>
+        <p>Casos criticos={{critical}} </p>
+        <p>Casos recuperados={{recovered}} </p>
+        <p>Bajas={{deaths}} </p>
+        <p>Total={{total}}</p>
     {% endif %}
 </body>
 </html>
