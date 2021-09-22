@@ -9,7 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVID-19</title>
 </head>
-<body class="bg-dark">
+
+<style>
+    #card{
+        display: none;
+        border-radius: 10px;
+    }
+    p{
+        font-weight: bold;
+    }
+</style>
+
+<body class="bg-dark text-center">
     <h1 class="text-center text-white mt-5">ESTADISTICAS <span class= "text-danger" >COVID-19</span> </h1>
     <!-- para modificar titulo de color blanco con alguna palabra en rojo por que le pusimos findo negro -->
     <form method="post" action="" class="d-flex justify-content-center align-items-center mt-5">
@@ -23,36 +34,36 @@
     </form>
 
     {% if not pais == '' %}
-    <div class= "text-center">
+    <!-- <div class= "text-center"> -->
     <div class=" container">
-        <div class="row text-whi~te d-flex justify-content-center align-items-center">
+        <div class="row text-white d-flex justify-content-center align-items-center">
             <div class="col-md-3 bg-info mx-3 my-3" id="card">
                 <h1>{{ new }}</h1>
                 <p>Nuevos casos</p>
             </div>
-            <div class="col-md-3 bg-info mx-3 my-3" id="card">
+            <div class="col-md-3 bg-light mx-3 my-3 text-dark" id="card">
                 <h1>{{ active }}</h1>
                 <p>Casos activos</p>
             </div>
-            <div class="col-md-3 bg-info mx-3 my-3" id="card">
+            <div class="col-md-3 bg-warning mx-3 my-3" id="card">
                 <h1>{{ critical }}</h1>
                 <p>Casos criticos</p>
             </div>
-        </div>
-    </div>    
-        <div class="row text-whi~te d-flex justify-content-center align-items-center">
-             <div class="col-md-3 bg-info mx-3 my-3" id="card">
+        </div> 
+        <div class="row text-white d-flex justify-content-center align-items-center">
+             <div class="col-md-3 bg-success mx-3 my-3" id="card">
               <h1>{{ recovered }}</h1>
               <p>Casos recuperados</p>
              </div>
-             <div class="col-md-3 bg-info mx-3 my-3" id="card">
+             <div class="col-md-3 bg-danger mx-3 my-3" id="card">
                 <h1>{{ deaths}}</h1>
                 <p>Bajas</p>
              </div>
-             <div class="col-md-3 bg-info mx-3 my-3" id="card">
+             <div class="col-md-3 bg-primary mx-3 my-3" id="card">
                 <h1>{{ total }}</h1>
                 <p>Total</p>
              </div>
+            </div>
         </div>
         <!-- <h1>{{ pais }}</h1> -->
         <!-- <p>Nuevos casos={{new}} </p> -->
@@ -62,5 +73,18 @@
         <!-- <p>Bajas={{deaths}} </p> -->
         <!-- <p>Total={{total}}</p> -->
     {% endif %}
+    <footer class="d-flex justify-content-center align-items-center text-white mt-5">
+        <p>Developed by</p>
+        <p class="text-secondary mx-2">Cynthia V. Mouzo</p>
+        <p class="fw-lighter">2021</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("div#card").fadeIn( 2000 );
+    })
+    </script>
+
 </body>
 </html>
