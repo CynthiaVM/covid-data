@@ -4,9 +4,12 @@
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
+    <!-- bootstrap es un framework frontend -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- la etiqueta meta para asegurar una presentacion adecuada y una funcion zoom -->
+    <!-- viewport: vista o ventana para definir el area de pantalla q estara disponible al renderizar el doc -->
     <title>COVID-19</title>
 </head>
 
@@ -21,6 +24,7 @@
 </style>
 
 <body class="bg-dark text-center">
+    <!-- fondo -->
     <h1 class="text-center text-white mt-5">ESTADISTICAS <span class= "text-danger" >COVID-19</span> </h1>
     <!-- para modificar titulo de color blanco con alguna palabra en rojo por que le pusimos findo negro -->
     <form method="post" action="" class="d-flex justify-content-center align-items-center mt-5">
@@ -31,6 +35,7 @@
             {% endfor %}
         </select>
             <input class="btn btn-outline-danger ms-3" type="submit">
+            <!-- boton -->
     </form>
 
     {% if not pais == '' %}
@@ -73,7 +78,9 @@
         <!-- <p>Bajas={{deaths}} </p> -->
         <!-- <p>Total={{total}}</p> -->
     {% endif %}
+    <!-- firma de la app -->
     <footer class="d-flex justify-content-center align-items-center text-white mt-5">
+        <!-- parte inferior de la pagina -->
         <p>Developed by</p>
         <p class="text-secondary mx-2">Cynthia V. Mouzo</p>
         <p class="fw-lighter">2021</p>
@@ -85,6 +92,7 @@
         $("div#card").fadeIn( 2000 );
     })
     </script>
+    <!-- fadeIn: efecto, muestra un elemento anteriormente oculto cambiando su opacidad -->
 
 </body>
 </html>
