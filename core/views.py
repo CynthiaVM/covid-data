@@ -14,7 +14,8 @@ headers = {
 response = requests.request("GET", url, headers=headers).json()
 #response = json.loads(response)
 response = response["response"]
-#lista por compresion, otra manera de consulta y comprimir un poco de codigo
+# lista por compresion, otra manera de consulta y comprimir un poco de codigo. 
+#json es un formato de intercambio de datos de facil lectura y escritura.Actualiza sin actualizar la pag.
 
 #countries= []
 
@@ -28,16 +29,16 @@ countries.sort()
 #countries.sort()
 
 def home(request):
-    if request.method=='POST':
-        pais = request.POST['selectedcountry']
+    if request.method=='POST': #solicitud de formulario, compara.
+        pais = request.POST["selectedcountry"]
         for i in response:
             if pais==i["country"]: #saca la data y la muestra en la terminal
                 #pprint.pprint(i)
-                new=i["cases"]["new"]
-                active= i["cases"]["active"]
-                critical= i["cases"]["critical"]
-                recovered=i["cases"]["recovered"]
-                total= i["cases"]["total"]
+                new=i["cases"]["new"]if i['cases']['new'] else '-'
+                active= i["cases"]["active"]if i['cases']['active'] else '-'
+                critical= i["cases"]["critical"]if i['cases']['critical'] else '-'
+                recovered=i["cases"]["recovered"]if i['cases']['recovered'] else '-'
+                total= i["cases"]["total"]if i['cases']['total'] else '-'
                 deaths= int(total)- int(active)- int(recovered)
         context=  {   
             "new":new,
@@ -51,5 +52,5 @@ def home(request):
             }   
         return render(request, "core/index.html", context=context)
 
-    return render(request, 'core/index.html', {'countries': countries})
+    return render(request, "core/index.html", {"countries": countries})
 
